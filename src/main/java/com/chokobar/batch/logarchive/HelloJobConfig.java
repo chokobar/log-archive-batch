@@ -26,7 +26,7 @@ public class HelloJobConfig {
     public Step helloStep(JobRepository jobRepository, PlatformTransactionManager transactionManager) {
         return new StepBuilder("helloStep", jobRepository)
                 .tasklet((contribution, chunkContext) -> {
-                    log.info("HELLO BATCH ");
+                    log.info("HELLO BATCH!");
                     return RepeatStatus.FINISHED;
                 }, transactionManager)
                 .build();
