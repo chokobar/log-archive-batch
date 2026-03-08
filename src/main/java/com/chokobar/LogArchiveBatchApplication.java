@@ -1,4 +1,4 @@
-package com.chokobar.batch.logarchive;
+package com.chokobar;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
