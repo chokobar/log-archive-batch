@@ -13,6 +13,7 @@ Spring Boot + Spring Batch로 대용량 로그를 주기적으로 이관 / 정�
 - Spring Batch 6.x
 - MySQL
 - Gradle
+- Redis
 
 
 ## 🔍 주요 기능(현재까지)
