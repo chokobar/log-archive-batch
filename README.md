@@ -21,6 +21,7 @@ Spring Boot + Spring Batch로 대용량 로그를 주기적으로 이관 / 정�
 - Job 실행 시 JobParameters(runAt)를 넣어 매 실행마다 새로운 실행 이력 생성
 - Spring Batch 메타데이터 테이블(BATCH_*)에 JobInstance / JobExecution / StepExecution 실행 이력 저장
 - 실행 결과 로그로 COMPLETED 확인
+- Redis 작업 추가 예정
 
 
 ## 🧪 학습 포인트
