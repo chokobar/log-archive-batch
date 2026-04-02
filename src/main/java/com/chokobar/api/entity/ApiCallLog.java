@@ -1,13 +1,11 @@
 package com.chokobar.api.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
+@Setter
 @Getter
 @Entity
 @Table(name = "api_call_log",
