@@ -11,7 +11,11 @@ public class ApiCallLogCreateRequest {
 
     private String method;
 
+    private String requestHeaders;
+
     private String requestBody;
+
+    private String responseHeaders;
 
     private String responseBody;
 

@@ -8,11 +8,13 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @Entity
-@Table(name = "api_call_log",
+@Table(
+        name = "api_call_log",
         indexes = {
                 @Index(name = "idx_api_call_log_created_at", columnList = "createdAt"),
                 @Index(name = "idx_api_call_log_status_code", columnList = "statusCode")
-        })
+        }
+)
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,8 +27,12 @@ public class ApiCallLog {
     @Column(nullable = false, length = 100)
     private String apiPath;
 
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 20)
     private String method;
+
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private String requestHeaders;
 
     @Lob
     @Column(columnDefinition = "TEXT")
@@ -34,12 +40,22 @@ public class ApiCallLog {
 
     @Lob
     @Column(columnDefinition = "TEXT")
+    private String responseHeaders;
+
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String responseBody;
 
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false)
     private Integer statusCode;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
 
+    @PrePersist
+    public void prePersist() {
+        if (this.createdAt == null) {
+            this.createdAt = LocalDateTime.now();
+        }
+    }
 }
