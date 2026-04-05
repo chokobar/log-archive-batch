@@ -15,9 +15,5 @@ public class ApiCallLogCreateRequest {
 
     private String requestBody;
 
-    private String responseHeaders;
-
-    private String responseBody;
-
     private Integer statusCode;
 }

@@ -38,14 +38,6 @@ public class ApiCallLog {
     @Column(columnDefinition = "TEXT")
     private String requestBody;
 
-    @Lob
-    @Column(columnDefinition = "TEXT")
-    private String responseHeaders;
-
-    @Lob
-    @Column(columnDefinition = "TEXT")
-    private String responseBody;
-
     @Column(nullable = false)
     private Integer statusCode;
 

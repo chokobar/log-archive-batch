@@ -17,8 +17,6 @@ public class ApiCallLogService {
                      String method,
                      String requestHeaders,
                      String requestBody,
-                     String responseHeaders,
-                     String responseBody,
                      Integer statusCode) {
 
         ApiCallLog log = ApiCallLog.builder()
@@ -26,8 +24,6 @@ public class ApiCallLogService {
                 .method(method)
                 .requestHeaders(requestHeaders)
                 .requestBody(requestBody)
-                .responseHeaders(responseHeaders)
-                .responseBody(responseBody)
                 .statusCode(statusCode)
                 .build();
 

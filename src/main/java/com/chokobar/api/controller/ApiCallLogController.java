@@ -37,8 +37,6 @@ public class ApiCallLogController {
                 method,
                 requestHeaders,
                 requestBody,
-                null,
-                null,
                 200
         );
 
