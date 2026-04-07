@@ -24,7 +24,7 @@ public class ApiCallLog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 255)
     private String apiPath;
 
     @Column(nullable = false, length = 20)
@@ -38,8 +38,15 @@ public class ApiCallLog {
     @Column(columnDefinition = "TEXT")
     private String requestBody;
 
+    @Lob
+    @Column(columnDefinition = "TEXT")
+    private String responseBody;
+
     @Column(nullable = false)
     private Integer statusCode;
+
+    @Column
+    private Long durationMs;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;

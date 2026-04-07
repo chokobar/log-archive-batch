@@ -13,18 +13,17 @@ public class ApiCallLogService {
     private final ApiCallLogRepository apiCallLogRepository;
 
     @Transactional
-    public void save(String apiPath,
-                     String method,
-                     String requestHeaders,
-                     String requestBody,
-                     Integer statusCode) {
+    public void save(String apiPath, String method, String requestHeaders, String requestBody,
+                     String responseBody, Integer statusCode, Long durationMs) {
 
         ApiCallLog log = ApiCallLog.builder()
                 .apiPath(apiPath)
                 .method(method)
                 .requestHeaders(requestHeaders)
                 .requestBody(requestBody)
+                .responseBody(responseBody)
                 .statusCode(statusCode)
+                .durationMs(durationMs)
                 .build();
 
         apiCallLogRepository.save(log);
