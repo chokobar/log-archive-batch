@@ -16,7 +16,7 @@ import static org.springframework.http.HttpStatus.CONFLICT;
 public class MemberService {
 
     private final MemberRepository memberRepository;
-    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private final BCryptPasswordEncoder passwordEncoder;
 
     @Transactional
     public Member signup(MemberSignupRequest request) {

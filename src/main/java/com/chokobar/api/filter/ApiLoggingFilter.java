@@ -1,5 +1,6 @@
 package com.chokobar.api.filter;
 
+import com.chokobar.api.dto.ApiCallLogSaveCommand;
 import com.chokobar.api.service.ApiCallLogService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
@@ -66,13 +67,15 @@ public class ApiLoggingFilter extends OncePerRequestFilter {
 
             try {
                 apiCallLogService.save(
-                        apiPath,
-                        method,
-                        requestHeaders,
-                        requestBody,
-                        responseBody,
-                        statusCode,
-                        durationMs
+                        ApiCallLogSaveCommand.builder()
+                                .apiPath(apiPath)
+                                .method(method)
+                                .requestHeaders(requestHeaders)
+                                .requestBody(requestBody)
+                                .responseBody(responseBody)
+                                .statusCode(statusCode)
+                                .durationMs(durationMs)
+                                .build()
                 );
             } catch (Exception e) {
                 log.error("API 로그 DB 저장 실패", e);

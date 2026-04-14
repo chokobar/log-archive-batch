@@ -1,5 +1,6 @@
 package com.chokobar.api.service;
 
+import com.chokobar.api.dto.ApiCallLogSaveCommand;
 import com.chokobar.api.entity.ApiCallLog;
 import com.chokobar.api.repository.ApiCallLogRepository;
 import jakarta.transaction.Transactional;
@@ -13,17 +14,15 @@ public class ApiCallLogService {
     private final ApiCallLogRepository apiCallLogRepository;
 
     @Transactional
-    public void save(String apiPath, String method, String requestHeaders, String requestBody,
-                     String responseBody, Integer statusCode, Long durationMs) {
-
+    public void save(ApiCallLogSaveCommand command) {
         ApiCallLog log = ApiCallLog.builder()
-                .apiPath(apiPath)
-                .method(method)
-                .requestHeaders(requestHeaders)
-                .requestBody(requestBody)
-                .responseBody(responseBody)
-                .statusCode(statusCode)
-                .durationMs(durationMs)
+                .apiPath(command.getApiPath())
+                .method(command.getMethod())
+                .requestHeaders(command.getRequestHeaders())
+                .requestBody(command.getRequestBody())
+                .responseBody(command.getResponseBody())
+                .statusCode(command.getStatusCode())
+                .durationMs(command.getDurationMs())
                 .build();
 
         apiCallLogRepository.save(log);
